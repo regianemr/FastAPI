@@ -18,7 +18,7 @@ class ContasPagarReceberRequest(BaseModel):
     tipo: str  # PAGAR E RECEBER
 
 
-@router.get("/", response_model=List[ContasPagarReceberResponse])
+@router.get("", response_model=List[ContasPagarReceberResponse])
 def listar_contas():
     return [
         ContasPagarReceberResponse(
@@ -38,7 +38,7 @@ def listar_contas():
 
 
 # Post sempre restorna algo; código padrão de postagem é o 201
-@router.post("/", response_model=ContasPagarReceberResponse, status_code=201)
+@router.post("", response_model=ContasPagarReceberResponse, status_code=201)
 def criar_conta(conta: ContasPagarReceberRequest):
     return ContasPagarReceberResponse(
         id=3,
